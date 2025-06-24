@@ -6,9 +6,11 @@ export interface NamespaceProps {
   /**
    * 组件类型
    */
-  type: string
+  type?: string
   /**
    * 分隔符
    */
   separator?: string
 }
+
+export type JoinType = string | Record<string, boolean> | boolean
