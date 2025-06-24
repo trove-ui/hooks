@@ -24,7 +24,7 @@ export default function useNamespace(props?: NamespaceProps) {
   const ns = {
     name,
     /**
-     * 转换为驼峰命名
+     * 使用驼峰命名法
      * @returns 转换后的字符串
      */
     toCamelCase() {
@@ -34,21 +34,22 @@ export default function useNamespace(props?: NamespaceProps) {
       return prefix + type.charAt(0).toUpperCase() + type.slice(1)
     },
     /**
-     * 转换为大驼峰命名
+     * 使用帕斯卡命名法
      * @returns 转换后的字符串
      */
     toPascalCase() {
-      return this.toCamelCase().charAt(0).toUpperCase() + this.toCamelCase().slice(1)
+      const camelCase = this.toCamelCase()
+      return camelCase.charAt(0).toUpperCase() + camelCase.slice(1)
     },
     /**
-     * 转换为全大写命名
+     * 使用全大写命名法
      * @returns 转换后的字符串
      */
     toUpperCase() {
       return this.name.toUpperCase().split(separator).join('')
     },
     /**
-     * 转换为全小写命名
+     * 使用全小写命名法
      * @returns 转换后的字符串
      */
     toLowerCase() {
