@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CountdownProps } from "./types";
 
 export default function useCountdown(props?: CountdownProps) {
@@ -12,6 +12,11 @@ export default function useCountdown(props?: CountdownProps) {
   const [countDown, setCountDown] = useState(initial);
   const [isRunning, setIsRunning] = useState(false);
   const [intervalId, setIntervalId] = useState<number | null>(null);
+
+  useEffect(() => {
+    console.log('isRunning', isRunning);
+    
+  }, [isRunning]);
 
   const start = () => {
     const count = clockwise ? 1000 : -1000;
@@ -46,9 +51,11 @@ export default function useCountdown(props?: CountdownProps) {
     setCountDown(0);
   };
 
-  if (autoStart) {
-    start();
-  }
+  useEffect(() => {
+    if (autoStart) {
+      start();
+    }
+  }, []);
 
   return {
     countDown,
