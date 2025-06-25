@@ -26,6 +26,7 @@ export default function useCountdown(props?: CountdownProps) {
         setCountDown((countDown) => {
           if (countDown * 1000 - stopWhen === 0) {
             setIsRunning(false);
+            clearInterval(id);
             setIntervalId(null);
             return countDown;
           }
@@ -47,8 +48,8 @@ export default function useCountdown(props?: CountdownProps) {
   };
 
   const reset = () => {
-    stop();
-    setCountDown(0);
+    // stop();
+    setCountDown(initial);
   };
 
   useEffect(() => {
