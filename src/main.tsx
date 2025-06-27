@@ -2,12 +2,14 @@ import { useMemo, useState } from 'react';
 import useCountdown from './hooks/useCountdown';
 import './main.css';
 import { useNamespace } from './hooks';
+import { useTime }  from './hooks/useTime'
 
 
 export function Main() {
   const ns = useNamespace()
   const [isSend, setIsSend] = useState(false);
 
+  const formatDate = useTime({ timeToConvert: new Date(), timeZone: 'Asia/Tokyo', targetFormat: 'MM/DD YYYY hh:mm:ss A' })
   const { countDown, start, isRunning, reset, stop } = useCountdown({ stopWhen: 0, initial: 5000, clockwise: false });
 
   const handleClick = () => {
@@ -28,6 +30,7 @@ export function Main() {
     return '重新发送'
   }, [isSend, isRunning, countDown])
   return (
+    <>
     <div
       className={
         ns.cls(
@@ -46,5 +49,7 @@ export function Main() {
       </button>
       <button onClick={stop}>暂停计时</button>
     </div>
+    <div>当前时间：{ formatDate }</div> 
+    </>
   );
 }

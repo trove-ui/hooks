@@ -37,3 +37,22 @@ export interface CountdownProps {
    */
   clockwise?: boolean
 }
+
+export interface TimeProps {
+  /**
+   * 支持 Date 对象、字符串或时间戳格式的时间值
+   */
+  timeToConvert?: Date | string | number;
+  /**
+   * 目标格式
+   */
+  targetFormat: string;
+  /**
+   * 是否跟随系统时间
+   */
+  followSystemTime?: boolean;
+  /**
+   * 时区
+   */
+  timeZone?: string;
+}  
