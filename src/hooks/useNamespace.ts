@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import type { JoinType, NamespaceProps } from "./types";
+import { useMemo } from 'react'
+import type { JoinType, NamespaceProps } from './types'
 
 export default function useNamespace(props?: NamespaceProps) {
   let {
@@ -68,7 +68,7 @@ export default function useNamespace(props?: NamespaceProps) {
         }
         return Object.keys(str).filter(key => str[key])
       }).join(' ')
-    },
+    }
 
   }
 

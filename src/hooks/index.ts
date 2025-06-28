@@ -1,2 +1,2 @@
-export { default as useNamespace } from './useNamespace';
+export { default as useNamespace } from './useNamespace'
 

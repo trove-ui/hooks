@@ -37,3 +37,37 @@ export interface CountdownProps {
    */
   clockwise?: boolean
 }
+
+export interface TimerProps {
+  /**
+   * 需要转换的时间
+   */
+  time?: Date;
+  /**
+   * 时区
+   */
+  timezone?: string;
+  /**
+   * 时间格式
+   */
+  format?: string;
+  /**
+   * 实时更新
+   */
+  update?: boolean;
+  /**
+   * 根据何种方式得出当前时期
+   */
+  definePeriod?:(time: Date) => string;
+}
+
+export interface Timer {
+  /**
+   * 格式化后的时间
+   */
+  formatText: string;
+  /**
+   * 时期，例如：上午、下午、晚上
+   */
+  period: string;
+}
